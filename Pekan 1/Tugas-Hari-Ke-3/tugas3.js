@@ -10,14 +10,18 @@ var kataKeempat = "javascript";
 // "saya Senang belajar JAVASCRIPT"
 
 // Jawaban Soal 1
-console.log("JAWABAN SOAL 1");
-console.log(
-  kataPertama.concat(" " + kataKedua + " " + kataKetiga + " " + kataKeempat)
-);
+console.log("--- SOAL 1 ---");
 
 var kalimat =
-  kataPertama + " " + kataKedua + " " + kataKetiga + " " + kataKeempat;
+  kataPertama +
+  " " +
+  (kataKedua[0].toUpperCase() + kataKedua.slice(1)) +
+  " " +
+  kataKetiga +
+  " " +
+  kataKeempat.toUpperCase();
 console.log(kalimat);
+console.log();
 
 // Soal 2
 // buatlah variabel-variabel seperti di bawah ini
@@ -35,8 +39,9 @@ var strInt2 = parseInt(kataKedua);
 var strInt3 = parseInt(kataKetiga);
 var strInt4 = parseInt(kataKeempat);
 var jumlah = strInt1 + strInt2 + strInt3 + strInt4;
-console.log("JAWABAN SOAL 2");
+console.log("--- SOAL 2 ---");
 console.log(jumlah);
+console.log();
 
 // Soal 3
 // buatlah variabel-variabel seperti di bawah ini
@@ -71,12 +76,14 @@ var kataKetiga = kalimat.substring(15, 18); // do your own!
 var kataKeempat = kalimat.substring(19, 24); // do your own!
 var kataKelima = kalimat.substring(25, 31); // do your own!
 
-console.log("JAWABAN SOAL 3");
+console.log("--- SOAL 3 ---");
 console.log("Kata Pertama: " + kataPertama);
 console.log("Kata Kedua: " + kataKedua);
 console.log("Kata Ketiga: " + kataKetiga);
 console.log("Kata Keempat: " + kataKeempat);
 console.log("Kata Kelima: " + kataKelima);
+
+console.log();
 
 // Soal 4
 // buatlah variabel seperti di bawah ini
@@ -94,7 +101,7 @@ var nilai;
 // Jawaban Soal 4
 var nilai = 88;
 
-console.log("JAWABAN SOAL 4");
+console.log("--- SOAL 4 ---");
 if (nilai >= 80) {
   console.log("A");
 } else if (nilai >= 70 && nilai < 80) {
@@ -106,6 +113,7 @@ if (nilai >= 80) {
 } else {
   console.log("E");
 }
+console.log();
 
 // Soal 5
 // buatlah variabel seperti di bawah ini
@@ -118,7 +126,7 @@ var tahun = 1991;
 
 // Jawaban Soal 5
 
-console.log("JAWABAN SOAL 5");
+console.log("--- SOAL 5 ---");
 var namaBulan;
 switch (bulan) {
   case 1: {
@@ -141,6 +149,13 @@ switch (bulan) {
     namaBulan = "Mei";
     break;
   }
+<<<<<<< HEAD
+=======
+  case 5: {
+    namaBulan = "Mei";
+    break;
+  }
+>>>>>>> cadbf27d2276f39c138fcb3d05fda71d71654f1f
   case 6: {
     namaBulan = "Juni";
     break;
