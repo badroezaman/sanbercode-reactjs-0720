@@ -149,13 +149,6 @@ switch (bulan) {
     namaBulan = "Mei";
     break;
   }
-<<<<<<< HEAD
-=======
-  case 5: {
-    namaBulan = "Mei";
-    break;
-  }
->>>>>>> cadbf27d2276f39c138fcb3d05fda71d71654f1f
   case 6: {
     namaBulan = "Juni";
     break;
