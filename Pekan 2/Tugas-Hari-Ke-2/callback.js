@@ -19,12 +19,3 @@ function readBooks(time, book, callback) {
 }
 
 module.exports = readBooks;
-
-// // Deklarasi function yang memilik callback sebagai parameter
-// function periksaDokter(nomerAntri, callback) {
-//     if(nomerAntri > 50 ) {
-//         callback(false)
-//     } else if(nomerAntri < 10) {
-//         callback(true)
-//     }
-// }
