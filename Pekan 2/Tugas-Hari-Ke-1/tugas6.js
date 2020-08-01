@@ -4,25 +4,12 @@ console.log("--- SOAL 1 ---");
 
 var arrayDaftarPeserta = ["Asep", "laki-laki", "baca buku", 1992];
 var objDaftarPeserta = {
-  nama: "Asep",
-  "jenis kelamin": "laki-laki",
-  hobi: "baca buku",
-  "tahun lahir": 1992,
+  nama: arrayDaftarPeserta[0],
+  jenisKelamin: arrayDaftarPeserta[1],
+  hobi: arrayDaftarPeserta[2],
+  tahunLahir: arrayDaftarPeserta[3],
 };
 
-// console.log(
-//   "Nama : " +
-//     objDaftarPeserta.nama +
-//     "\n" +
-//     "Jenis Kelamin : " +
-//     objDaftarPeserta["jenis kelamin"] +
-//     "\n" +
-//     "Hobi : " +
-//     objDaftarPeserta.hobi +
-//     "\n" +
-//     "Tahun lahir : " +
-//     objDaftarPeserta["tahun lahir"]
-// );
 console.debug(objDaftarPeserta);
 console.log();
 
@@ -49,22 +36,13 @@ console.log("--- SOAL 2 ---");
 // uraikan data tersebut menjadi array of object dan munculkan data pertama
 
 var dataBuah = [
-  { nama: "strawberry", warna: "merah", "ada bijinya": "tidak", harga: 9000 },
-  { nama: "jeruk", warna: "oranye", "ada bijinya": "ada", harga: 8000 },
-  {
-    nama: "Semangka",
-    warna: "Hijau & Merah",
-    "ada bijinya": "ada",
-    harga: 10000,
-  },
-  { nama: "Pisang", warna: "Kuning", "ada bijinya": "tidak", harga: 5000 },
+  { nama: "strawberry", warna: "merah", adaBijinya: false, harga: 9000 },
+  { nama: "jeruk", warna: "oranye", adaBijinya: true, harga: 8000 },
+  { nama: "Semangka", warna: "Hijau & Merah", adaBijinya: true, harga: 10000 },
+  { nama: "Pisang", warna: "Kuning", adaBijinya: false, harga: 5000 },
 ];
 
-var arrayDataBuah = dataBuah.filter(function (item) {
-  return item.nama == "strawberry";
-});
-
-console.debug(arrayDataBuah);
+console.debug(dataBuah[0]);
 console.log();
 
 // Soal 3
@@ -77,19 +55,21 @@ console.log("--- SOAL 3 ---");
 
 var dataFilm = [];
 
-function tambahFilm(item) {
-  dataFilm.push(item);
+function tambahDataFilm(nama, durasi, genre, tahun) {
+  dataFilm.push({
+    nama: nama,
+    durasi: durasi,
+    genre: genre,
+    tahun: tahun,
+  });
 }
 
-var item = {
-  nama: "Joker",
-  durasi: "2h 2min",
-  genre: "Crime, Drama, Thriller",
-  tahun: "2019",
-};
+tambahDataFilm("LOTR", "2 jam", "action", "1999");
+tambahDataFilm("avenger", "2 jam", "action", "2019");
+tambahDataFilm("spiderman", "2 jam", "action", "2004");
+tambahDataFilm("juon", "2 jam", "horror", "2004");
 
-tambahFilm(item);
-console.debug(dataFilm);
+console.log(dataFilm);
 console.log();
 
 // Soal 4
@@ -106,12 +86,21 @@ console.log("--- Release 0 ---");
 
 class Animal {
   constructor(name) {
-    this.anim = name;
+    this.name = name;
     this.legs = 4;
     this.cold_blooded = "false";
   }
-  get name() {
-    return this.anim;
+  get _name() {
+    return this.name;
+  }
+  get _legs() {
+    return this.legs;
+  }
+  set _legs(amount) {
+    this.legs = amount;
+  }
+  get _cold_blooded() {
+    return this.cold_blooded;
   }
 }
 
@@ -127,11 +116,11 @@ console.log();
 console.log("--- Release 1 ---");
 
 class Ape extends Animal {
-  constructor(name) {
+  constructor(name, amount) {
     super(name);
+    this.legs = amount;
   }
   yell() {
-    // return console.log(this.anim + " " + "Auooo");
     return console.log("Auooo");
   }
 }
@@ -145,12 +134,17 @@ class Frog extends Animal {
   }
 }
 
-var sungokong = new Ape("kera sakti");
-// console.log(sungokong.name);
+var sungokong = new Ape("kera sakti", 2);
 sungokong.yell(); // "Auooo"
+console.log(sungokong.name);
+console.log(sungokong.legs);
+console.log(sungokong.cold_blooded);
 
 var kodok = new Frog("buduk");
 kodok.jump(); // "hop hop"
+console.log(kodok.name);
+console.log(kodok.legs);
+console.log(kodok.cold_blooded);
 
 console.log();
 
@@ -162,36 +156,35 @@ console.log("--- SOAL 5 ---");
 
 class Clock {
   constructor({ template }) {
-    var timer;
+    this.template = template;
+  }
 
-    function render() {
-      var date = new Date();
+  render() {
+    var date = new Date();
 
-      var hours = date.getHours();
-      if (hours < 10) hours = "0" + hours;
+    var hours = date.getHours();
+    if (hours < 10) hours = "0" + hours;
 
-      var mins = date.getMinutes();
-      if (mins < 10) mins = "0" + mins;
+    var mins = date.getMinutes();
+    if (mins < 10) mins = "0" + mins;
 
-      var secs = date.getSeconds();
-      if (secs < 10) secs = "0" + secs;
+    var secs = date.getSeconds();
+    if (secs < 10) secs = "0" + secs;
 
-      var output = template
-        .replace("h", hours)
-        .replace("m", mins)
-        .replace("s", secs);
+    var output = this.template
+      .replace("h", hours)
+      .replace("m", mins)
+      .replace("s", secs);
 
-      console.log(output);
-    }
+    console.log(output);
+  }
 
-    this.stop = function () {
-      clearInterval(timer);
-    };
+  stop() {
+    clearInterval(this.timer);
+  }
 
-    this.start = function () {
-      render();
-      timer = setInterval(render, 1000);
-    };
+  start() {
+    this.timer = setInterval(this.render.bind(this), 1000);
   }
 }
 
