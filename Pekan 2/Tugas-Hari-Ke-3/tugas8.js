@@ -37,18 +37,19 @@ console.log("-- Soal 2 --");
 // frontend
 // developer
 
-const kata1 = "saya";
-const kata2 = "adalah";
-const kata3 = "seorang";
-const kata4 = "frontend";
-const kata5 = "developer";
+let kalimat = "";
 
-let kalimat = () => {
-  return `${kata1} ${kata2} ${kata3} ${kata4} ${kata5}`;
+const tambahkanKata = (str) => {
+  kalimat = `${kalimat} ${str}`;
 };
 
-gabungan = kalimat();
-console.log(gabungan);
+tambahkanKata("saya");
+tambahkanKata("adalah");
+tambahkanKata("seorang");
+tambahkanKata("frontend");
+tambahkanKata("developer");
+
+console.log(kalimat);
 
 console.log();
 // Soal 3
